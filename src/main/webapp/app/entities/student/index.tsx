@@ -14,12 +14,12 @@ import {AUTHORITIES} from "app/config/constants";
 const Routes = ({ match }) => (
   <>
     <Switch>
-      <PrivateRoute exact path={`${match.url}/new`} component={StudentUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
-      <PrivateRoute exact path={`${match.url}/:id/edit`} component={StudentUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
+      <PrivateRoute exact path={`${match.url}/new`} component={StudentUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.ADMIN_CLUB, AUTHORITIES.PRESIDENT]} />
+      <PrivateRoute exact path={`${match.url}/:id/edit`} component={StudentUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.ADMIN_CLUB, AUTHORITIES.PRESIDENT]} />
       <ErrorBoundaryRoute exact path={`${match.url}/:id`} component={StudentDetail} />
       <ErrorBoundaryRoute path={match.url} component={Student} />
     </Switch>
-    <PrivateRoute exact path={`${match.url}/:id/delete`} component={StudentDeleteDialog} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
+    <PrivateRoute exact path={`${match.url}/:id/delete`} component={StudentDeleteDialog} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.ADMIN_CLUB, AUTHORITIES.PRESIDENT]} />
 
   </>
 );

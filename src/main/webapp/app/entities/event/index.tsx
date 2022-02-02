@@ -15,12 +15,12 @@ import ClubDeleteDialog from "app/entities/club/club-delete-dialog";
 const Routes = ({ match }) => (
   <>
     <Switch>
-      <PrivateRoute exact path={`${match.url}/new`} component={EventUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.PRESIDENT, AUTHORITIES.VP]} />
-      <PrivateRoute exact path={`${match.url}/:id/edit`} component={EventUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.PRESIDENT, AUTHORITIES.VP]} />
+      <PrivateRoute exact path={`${match.url}/new`} component={EventUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.PRESIDENT, AUTHORITIES.VP, AUTHORITIES.ADMIN_CLUB]} />
+      <PrivateRoute exact path={`${match.url}/:id/edit`} component={EventUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.PRESIDENT, AUTHORITIES.VP, AUTHORITIES.ADMIN_CLUB]} />
       <ErrorBoundaryRoute exact path={`${match.url}/:id`} component={EventDetail} />
       <ErrorBoundaryRoute path={match.url} component={Event} />
     </Switch>
-    <PrivateRoute exact path={`${match.url}/:id/delete`} component={EventDeleteDialog} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.PRESIDENT, AUTHORITIES.VP]} />
+    <PrivateRoute exact path={`${match.url}/:id/delete`} component={EventDeleteDialog} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.PRESIDENT, AUTHORITIES.VP, AUTHORITIES.ADMIN_CLUB]} />
   </>
 );
 

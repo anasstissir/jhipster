@@ -17,11 +17,11 @@ const Routes = ({ match }) => (
   <div>
     <Switch>
       {/* prettier-ignore */}
-      <ErrorBoundaryRoute path={`${match.url}student`} component={Student} />
+      <PrivateRoute path={`${match.url}student`} component={Student} hasAnyAuthorities={[AUTHORITIES.ADMIN,AUTHORITIES.PRESIDENT, AUTHORITIES.ADMIN_CLUB, AUTHORITIES.VP]}/>
       <ErrorBoundaryRoute path={`${match.url}club`} component={Club} />
       <ErrorBoundaryRoute path={`${match.url}event`} component={Event} />
       <ErrorBoundaryRoute path={`${match.url}meeting`} component={Meeting} />
-      <PrivateRoute path={`${match.url}invoice`} component={Invoice} hasAnyAuthorities={[AUTHORITIES.ADMIN,AUTHORITIES.ACCOUNT_MANAGER,AUTHORITIES.PRESIDENT]} />
+      <PrivateRoute path={`${match.url}invoice`} component={Invoice} hasAnyAuthorities={[AUTHORITIES.ADMIN,AUTHORITIES.ACCOUNT_MANAGER,AUTHORITIES.PRESIDENT, AUTHORITIES.ADMIN_CLUB]} />
       {/* jhipster-needle-add-route-path - JHipster will add routes here */}
     </Switch>
   </div>

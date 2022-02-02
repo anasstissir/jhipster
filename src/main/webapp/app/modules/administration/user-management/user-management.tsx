@@ -97,10 +97,6 @@ export const UserManagement = (props: RouteComponentProps<any>) => {
       <Table responsive striped>
         <thead>
           <tr>
-            <th className="hand" onClick={sort('id')}>
-              ID
-              <FontAwesomeIcon icon="sort" />
-            </th>
             <th className="hand" onClick={sort('login')}>
               Login
               <FontAwesomeIcon icon="sort" />
@@ -131,10 +127,10 @@ export const UserManagement = (props: RouteComponentProps<any>) => {
             <tr id={user.login} key={`user-${i}`}>
               <td>
                 <Button tag={Link} to={`${match.url}/${user.login}`} color="link" size="sm">
-                  {user.id}
+
+                  {user.login}
                 </Button>
               </td>
-              <td>{user.login}</td>
               <td>{user.email}</td>
               <td>
                 {user.activated ? (

@@ -178,7 +178,7 @@ export const StudentUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 {users
                   ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                        {otherEntity.login}
                       </option>
                     ))
                   : null}
@@ -189,7 +189,7 @@ export const StudentUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 {clubs
                   ? clubs.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                        {otherEntity.clubName}
                       </option>
                     ))
                   : null}

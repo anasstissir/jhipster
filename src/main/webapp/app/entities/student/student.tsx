@@ -89,7 +89,7 @@ export const Student = (props: RouteComponentProps<{ url: string }>) => {
           </Button>
           <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
-            &nbsp; Create new Student
+            &nbsp; Completer informations étudiant
           </Link>
         </div>
       </h2>
@@ -122,8 +122,8 @@ export const Student = (props: RouteComponentProps<{ url: string }>) => {
                 <th className="hand" onClick={sort('mail')}>
                   Mail <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('picture')}>
-                  Picture <FontAwesomeIcon icon="sort" />
+                <th className="hand" onClick={sort('club')}>
+                  Club <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('role')}>
                   Role <FontAwesomeIcon icon="sort" />
@@ -146,18 +146,7 @@ export const Student = (props: RouteComponentProps<{ url: string }>) => {
                   <td>{student.residency}</td>
                   <td>{student.tel}</td>
                   <td>{student.mail}</td>
-                  <td>
-                    {student.picture ? (
-                      <div>
-                        {student.pictureContentType ? (
-                          <a onClick={openFile(student.pictureContentType, student.picture)}>Open &nbsp;</a>
-                        ) : null}
-                        <span>
-                          {student.pictureContentType}, {byteSize(student.picture)}
-                        </span>
-                      </div>
-                    ) : null}
-                  </td>
+                  <td>{student.club ? <Link to={`club/${student.club.id}`}>{student.club.clubName}</Link> : ''}</td>
                   <td>{student.role}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">

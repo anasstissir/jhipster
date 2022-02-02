@@ -7,16 +7,19 @@ import Invoice from './invoice';
 import InvoiceDetail from './invoice-detail';
 import InvoiceUpdate from './invoice-update';
 import InvoiceDeleteDialog from './invoice-delete-dialog';
+import PrivateRoute from "app/shared/auth/private-route";
+import MeetingUpdate from "app/entities/meeting/meeting-update";
+import {AUTHORITIES} from "app/config/constants";
 
 const Routes = ({ match }) => (
   <>
     <Switch>
-      <ErrorBoundaryRoute exact path={`${match.url}/new`} component={InvoiceUpdate} />
-      <ErrorBoundaryRoute exact path={`${match.url}/:id/edit`} component={InvoiceUpdate} />
-      <ErrorBoundaryRoute exact path={`${match.url}/:id`} component={InvoiceDetail} />
+      <PrivateRoute exact path={`${match.url}/new`} component={InvoiceUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.ACCOUNT_MANAGER]} />
+      <PrivateRoute exact path={`${match.url}/:id/edit`} component={InvoiceUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.ACCOUNT_MANAGER]} />
+     <ErrorBoundaryRoute exact path={`${match.url}/:id`} component={InvoiceDetail} />
       <ErrorBoundaryRoute path={match.url} component={Invoice} />
     </Switch>
-    <ErrorBoundaryRoute exact path={`${match.url}/:id/delete`} component={InvoiceDeleteDialog} />
+    <PrivateRoute exact path={`${match.url}/:id/delete`} component={InvoiceDeleteDialog} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.ACCOUNT_MANAGER]} />
   </>
 );
 

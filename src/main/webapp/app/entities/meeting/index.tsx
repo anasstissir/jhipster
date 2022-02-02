@@ -14,12 +14,12 @@ import {AUTHORITIES} from "app/config/constants";
 const Routes = ({ match }) => (
   <>
     <Switch>
-      <PrivateRoute exact path={`${match.url}/new`} component={MeetingUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.PRESIDENT, AUTHORITIES.VP]} />
-      <PrivateRoute exact path={`${match.url}/:id/edit`} component={MeetingUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.PRESIDENT, AUTHORITIES.VP]} />
+      <PrivateRoute exact path={`${match.url}/new`} component={MeetingUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.PRESIDENT, AUTHORITIES.VP, AUTHORITIES.ADMIN_CLUB]} />
+      <PrivateRoute exact path={`${match.url}/:id/edit`} component={MeetingUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.PRESIDENT, AUTHORITIES.VP, AUTHORITIES.ADMIN_CLUB]} />
       <ErrorBoundaryRoute exact path={`${match.url}/:id`} component={MeetingDetail} />
       <ErrorBoundaryRoute path={match.url} component={Meeting} />
     </Switch>
-    <PrivateRoute exact path={`${match.url}/:id/delete`}component={MeetingDeleteDialog} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.PRESIDENT, AUTHORITIES.VP]} />
+    <PrivateRoute exact path={`${match.url}/:id/delete`}component={MeetingDeleteDialog} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.PRESIDENT, AUTHORITIES.VP, AUTHORITIES.ADMIN_CLUB]} />
   </>
 );
 
