@@ -98,9 +98,6 @@ export const Club = (props: RouteComponentProps<{ url: string }>) => {
           <Table responsive>
             <thead>
               <tr>
-                <th className="hand" onClick={sort('id')}>
-                  ID <FontAwesomeIcon icon="sort" />
-                </th>
                 <th className="hand" onClick={sort('clubName')}>
                   Club Name <FontAwesomeIcon icon="sort" />
                 </th>
@@ -118,10 +115,9 @@ export const Club = (props: RouteComponentProps<{ url: string }>) => {
                 <tr key={`entity-${i}`} data-cy="entityTable">
                   <td>
                     <Button tag={Link} to={`${match.url}/${club.id}`} color="link" size="sm">
-                      {club.id}
+                      {club.clubName}
                     </Button>
                   </td>
-                  <td>{club.clubName}</td>
                   <td>{club.creationDate ? <TextFormat type="date" value={club.creationDate} format={APP_DATE_FORMAT} /> : null}</td>
                   <td>
                     {club.logo ? (

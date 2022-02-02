@@ -99,13 +99,7 @@ export const Student = (props: RouteComponentProps<{ url: string }>) => {
             <thead>
               <tr>
                 <th className="hand" onClick={sort('id')}>
-                  ID <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('firstname')}>
-                  Firstname <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('lastname')}>
-                  Lastname <FontAwesomeIcon icon="sort" />
+                  Name <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('nationality')}>
                   Nationality <FontAwesomeIcon icon="sort" />
@@ -134,15 +128,6 @@ export const Student = (props: RouteComponentProps<{ url: string }>) => {
                 <th className="hand" onClick={sort('role')}>
                   Role <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('adhesion')}>
-                  Adhesion <FontAwesomeIcon icon="sort" />
-                </th>
-                <th>
-                  User <FontAwesomeIcon icon="sort" />
-                </th>
-                <th>
-                  Club <FontAwesomeIcon icon="sort" />
-                </th>
                 <th />
               </tr>
             </thead>
@@ -151,11 +136,9 @@ export const Student = (props: RouteComponentProps<{ url: string }>) => {
                 <tr key={`entity-${i}`} data-cy="entityTable">
                   <td>
                     <Button tag={Link} to={`${match.url}/${student.id}`} color="link" size="sm">
-                      {student.id}
+                      {student.firstname} {student.lastname}
                     </Button>
                   </td>
-                  <td>{student.firstname}</td>
-                  <td>{student.lastname}</td>
                   <td>{student.nationality}</td>
                   <td>{student.city}</td>
                   <td>{student.filiere}</td>
@@ -176,9 +159,6 @@ export const Student = (props: RouteComponentProps<{ url: string }>) => {
                     ) : null}
                   </td>
                   <td>{student.role}</td>
-                  <td>{student.adhesion ? <TextFormat type="date" value={student.adhesion} format={APP_DATE_FORMAT} /> : null}</td>
-                  <td>{student.user ? student.user.id : ''}</td>
-                  <td>{student.club ? <Link to={`club/${student.club.id}`}>{student.club.id}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${student.id}`} color="info" size="sm" data-cy="entityDetailsButton">

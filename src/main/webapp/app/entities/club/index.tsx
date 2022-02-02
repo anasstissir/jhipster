@@ -15,12 +15,12 @@ import StudentDeleteDialog from "app/entities/student/student-delete-dialog";
 const Routes = ({ match }) => (
   <>
     <Switch>
-      <PrivateRoute exact path={`${match.url}/new`} component={ClubUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
-      <PrivateRoute exact path={`${match.url}/:id/edit`} component={ClubUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
+      <PrivateRoute exact path={`${match.url}/new`} component={ClubUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.ADMIN_CLUB]} />
+      <PrivateRoute exact path={`${match.url}/:id/edit`} component={ClubUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.ADMIN_CLUB]} />
       <ErrorBoundaryRoute exact path={`${match.url}/:id`} component={ClubDetail} />
       <ErrorBoundaryRoute path={match.url} component={Club} />
     </Switch>
-    <PrivateRoute exact path={`${match.url}/:id/delete`} component={ClubDeleteDialog} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
+    <PrivateRoute exact path={`${match.url}/:id/delete`} component={ClubDeleteDialog} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.ADMIN_CLUB]} />
   </>
 );
 

@@ -106,7 +106,7 @@ export const InvoiceUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 {events
                   ? events.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                        {otherEntity.title}
                       </option>
                     ))
                   : null}

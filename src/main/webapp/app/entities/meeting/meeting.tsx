@@ -98,9 +98,6 @@ export const Meeting = (props: RouteComponentProps<{ url: string }>) => {
           <Table responsive>
             <thead>
               <tr>
-                <th className="hand" onClick={sort('id')}>
-                  ID <FontAwesomeIcon icon="sort" />
-                </th>
                 <th className="hand" onClick={sort('title')}>
                   Title <FontAwesomeIcon icon="sort" />
                 </th>
@@ -127,15 +124,14 @@ export const Meeting = (props: RouteComponentProps<{ url: string }>) => {
                 <tr key={`entity-${i}`} data-cy="entityTable">
                   <td>
                     <Button tag={Link} to={`${match.url}/${meeting.id}`} color="link" size="sm">
-                      {meeting.id}
+                      {meeting.title}
                     </Button>
                   </td>
-                  <td>{meeting.title}</td>
                   <td>{meeting.meetingDate ? <TextFormat type="date" value={meeting.meetingDate} format={APP_DATE_FORMAT} /> : null}</td>
                   <td>{meeting.meetingPlace}</td>
                   <td>{meeting.content}</td>
                   <td>{meeting.statut}</td>
-                  <td>{meeting.club ? <Link to={`club/${meeting.club.id}`}>{meeting.club.id}</Link> : ''}</td>
+                  <td>{meeting.club ? <Link to={`club/${meeting.club.id}`}>{meeting.club.clubName}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${meeting.id}`} color="info" size="sm" data-cy="entityDetailsButton">

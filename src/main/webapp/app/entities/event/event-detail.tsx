@@ -22,10 +22,6 @@ export const EventDetail = (props: RouteComponentProps<{ id: string }>) => {
         <h2 data-cy="eventDetailsHeading">Event</h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="id">ID</span>
-          </dt>
-          <dd>{eventEntity.id}</dd>
-          <dt>
             <span id="title">Title</span>
           </dt>
           <dd>{eventEntity.title}</dd>

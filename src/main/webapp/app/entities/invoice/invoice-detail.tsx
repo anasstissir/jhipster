@@ -22,10 +22,6 @@ export const InvoiceDetail = (props: RouteComponentProps<{ id: string }>) => {
         <h2 data-cy="invoiceDetailsHeading">Invoice</h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="id">ID</span>
-          </dt>
-          <dd>{invoiceEntity.id}</dd>
-          <dt>
             <span id="amount">Amount</span>
           </dt>
           <dd>{invoiceEntity.amount}</dd>

@@ -22,10 +22,6 @@ export const MeetingDetail = (props: RouteComponentProps<{ id: string }>) => {
         <h2 data-cy="meetingDetailsHeading">Meeting</h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="id">ID</span>
-          </dt>
-          <dd>{meetingEntity.id}</dd>
-          <dt>
             <span id="title">Title</span>
           </dt>
           <dd>{meetingEntity.title}</dd>

@@ -98,9 +98,6 @@ export const Event = (props: RouteComponentProps<{ url: string }>) => {
           <Table responsive>
             <thead>
               <tr>
-                <th className="hand" onClick={sort('id')}>
-                  ID <FontAwesomeIcon icon="sort" />
-                </th>
                 <th className="hand" onClick={sort('title')}>
                   Title <FontAwesomeIcon icon="sort" />
                 </th>
@@ -133,17 +130,16 @@ export const Event = (props: RouteComponentProps<{ url: string }>) => {
                 <tr key={`entity-${i}`} data-cy="entityTable">
                   <td>
                     <Button tag={Link} to={`${match.url}/${event.id}`} color="link" size="sm">
-                      {event.id}
+                      {event.title}
                     </Button>
                   </td>
-                  <td>{event.title}</td>
                   <td>{event.eventDate ? <TextFormat type="date" value={event.eventDate} format={APP_DATE_FORMAT} /> : null}</td>
                   <td>{event.eventEnd ? <TextFormat type="date" value={event.eventEnd} format={APP_DATE_FORMAT} /> : null}</td>
                   <td>{event.eventPlace}</td>
                   <td>{event.content}</td>
                   <td>{event.statut}</td>
                   <td>{event.budget}</td>
-                  <td>{event.club ? <Link to={`club/${event.club.id}`}>{event.club.id}</Link> : ''}</td>
+                  <td>{event.club ? <Link to={`club/${event.club.id}`}>{event.club.clubName}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${event.id}`} color="info" size="sm" data-cy="entityDetailsButton">

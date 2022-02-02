@@ -156,7 +156,7 @@ export const EventUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 {clubs
                   ? clubs.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                        {otherEntity.clubName}
                       </option>
                     ))
                   : null}

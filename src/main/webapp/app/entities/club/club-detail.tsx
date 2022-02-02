@@ -21,9 +21,6 @@ export const ClubDetail = (props: RouteComponentProps<{ id: string }>) => {
       <Col md="8">
         <h2 data-cy="clubDetailsHeading">Club</h2>
         <dl className="jh-entity-details">
-          <dt>
-            <span id="id">ID</span>
-          </dt>
           <dd>
             {clubEntity.logo ? (
               <div>
